@@ -55,7 +55,15 @@ def evaluate_metrics(model, env, num_episodes=10, num_trials=100, verbose=False,
     return metrics
 
 def save_model_params(trial, model_name:str, save_path:str, default_params:dict=None) -> None:
-    """
+    """Writes all tuned model hyperparameters to file in save path.
+
+    Args:
+      trial: Best trial from Optuna study
+      model_name: Model name used as reference key in saved hyperparameters file
+      save_path: Yaml File path containing saved hyperparameters
+
+    Returns:
+      None
     """
     if isfile(save_path):
         with open(save_path) as file:
@@ -102,7 +110,7 @@ def get_model_params(model_name:str, save_path:str) -> dict:
 
     return all_model_hyperparams[model_name]
 
-def load_model_param(sb3_model, params:dict):
+def load_model_params(sb3_model, params:dict):
     """Load tuned hyperparameters into Stable Baseline3 (sb3) model
 
     Args:
