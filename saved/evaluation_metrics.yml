@@ -1,7 +1,9 @@
 DQN:
-  ave_steps: 2.0
+  ave_steps: 23.8
   step_array:
-  - 2
-  - 3
-  - 1
-  success_rate: 0.03
+  - 29
+  - 25
+  - 26
+  - 10
+  - 29
+  success_rate: 0.05
