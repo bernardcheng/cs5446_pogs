@@ -2,7 +2,7 @@ import yaml
 from os.path import isfile
 from pogema.animation import AnimationMonitor, AnimationConfig
 
-def evaluate_metrics(model, env, num_episodes=10, num_trials=100, verbose=False, save_animation=False) -> dict:
+def evaluate_metrics(model, env, model_name:str, num_episodes=10, num_trials=100, verbose=False, save_animation=False) -> dict:
     """Evaluate trained agent (model) on environment based on set number of trials.
 
     Args:
@@ -41,7 +41,7 @@ def evaluate_metrics(model, env, num_episodes=10, num_trials=100, verbose=False,
                 success_count += 1
                 step_array.append(steps_taken)
                 if save_animation:
-                    env.save_animation(f"renders/render.svg", AnimationConfig(egocentric_idx=0))
+                    env.save_animation(f"renders/render_{model_name}.svg", AnimationConfig(egocentric_idx=0))
                 break
     
     # store evaluation metrics to be returned
