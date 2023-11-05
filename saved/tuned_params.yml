@@ -8,3 +8,8 @@ DQN_B:
   learning_rate: 0.0002739870168894694
   policy: MlpPolicy
   verbose: 1
+DQN_C:
+  gamma: 0.9963472311724366
+  learning_rate: 0.0001427505728460859
+  policy: MlpPolicy
+  verbose: 1
