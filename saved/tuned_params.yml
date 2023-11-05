@@ -1,11 +1,5 @@
-DQN:
-  batch_size: 512
-  env: Pogema-v0
-  exploration_final_eps: 0.022033917540945417
-  exploration_fraction: 0.10891274494616725
-  gamma: 0.9992434633092863
-  learning_rate: 1.8407920478653214e-05
-  max_grad_norm: 9.482308659624474
+DQN_A:
+  gamma: 0.999671444970344
+  learning_rate: 7.721318851702573e-05
   policy: MlpPolicy
-  target_update_interval: 1888
   verbose: 1
