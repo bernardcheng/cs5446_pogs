@@ -1,0 +1,15 @@
+DQN_A:
+  gamma: 0.999671444970344
+  learning_rate: 7.721318851702573e-05
+  policy: MlpPolicy
+  verbose: 1
+DQN_B:
+  gamma: 0.9100136993298732
+  learning_rate: 0.0002739870168894694
+  policy: MlpPolicy
+  verbose: 1
+DQN_C:
+  gamma: 0.9963472311724366
+  learning_rate: 0.0001427505728460859
+  policy: MlpPolicy
+  verbose: 1
