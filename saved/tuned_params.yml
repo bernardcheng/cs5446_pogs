@@ -13,3 +13,18 @@ DQN_C:
   learning_rate: 0.0001427505728460859
   policy: MlpPolicy
   verbose: 1
+PPO_A:
+  gamma: 0.998403106102964
+  learning_rate: 0.00082895304595554
+  policy: MlpPolicy
+  verbose: 1
+PPO_B:
+  gamma: 0.9985362024431217
+  learning_rate: 0.00021990781467272198
+  policy: MlpPolicy
+  verbose: 1
+PPO_C:
+  gamma: 0.9920887510638191
+  learning_rate: 0.0042933221799210716
+  policy: MlpPolicy
+  verbose: 1

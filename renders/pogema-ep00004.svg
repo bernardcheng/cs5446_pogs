@@ -1,65 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             width="190" height="190" viewBox="0 -1900 1900 1900">
+             width="150" height="150" viewBox="0 -1500 1500 1500">
 
 <defs>
 
 </defs>
 
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-535" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-535" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-635" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-735" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-835" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-935" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-1035" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-1135" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="265" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="365" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="365" y="-735" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="365" y="-835" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="365" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-335" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-635" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-735" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-835" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-1035" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-1135" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-1235" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-1335" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="465" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-435" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-1135" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="565" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-335" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-735" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-1135" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-1335" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-635" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-835" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-1035" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="665" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-335" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-535" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-635" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-735" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-835" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-1135" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-1435" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-835" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="765" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-635" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="865" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-435" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-535" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-1135" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-1335" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="965" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-335" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-1035" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-1435" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-635" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1065" y="-1235" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-335" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-435" />
 <rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-1435" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1265" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1265" y="-635" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1265" y="-735" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1265" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1265" y="-1435" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-535" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-635" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-735" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-835" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-935" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-1035" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-1135" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-1235" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-1335" />
-<rect fill="#84A1AE" height="70" rx="15" width="70" x="1365" y="-1435" />
-<circle cx="800" cy="-900" fill="#c1433c" r="35"> <animate attributeName="cy" dur="28.28s" keyTimes="0.0;0.0098039216;0.0196078431;0.0294117647;0.0392156863;0.0490196078;0.0588235294;0.068627451;0.0784313725;0.0882352941;0.137254902;0.1470588235;0.1568627451;0.1666666667;0.2058823529;0.2156862745;0.2254901961;0.2941176471;0.3039215686;0.3823529412;0.3921568627;0.4019607843;0.4117647059;0.431372549;0.4411764706;0.4607843137;0.4705882353;0.4803921569;0.4901960784;0.5;0.5098039216;0.5196078431;0.5588235294;0.568627451;0.5784313725;0.5882352941;0.6078431373;0.6176470588;0.6568627451;0.6666666667;0.6764705882;0.6862745098;0.6960784314;0.7450980392;0.7549019608;0.7647058824;0.8529411765;0.862745098;0.8725490196;0.8823529412;0.8921568627;0.9019607843;0.9607843137;0.9705882353;0.9803921569;0.9901960784;1.0" repeatCount="indefinite" values="-900;-900;-900;-1000;-900;-1000;-900;-900;-1000;-900;-900;-1000;-1000;-900;-900;-1000;-900;-900;-1000;-1000;-900;-900;-800;-800;-700;-700;-800;-800;-700;-700;-600;-700;-700;-800;-700;-600;-600;-700;-700;-800;-800;-700;-800;-800;-900;-800;-800;-900;-800;-700;-700;-600;-600;-700;-700;-600;-600"/>
-<animate attributeName="cx" dur="28.28s" keyTimes="0.0;0.0098039216;0.3039215686;0.3137254902;0.3529411765;0.362745098;0.3725490196;0.3823529412;0.4509803922;0.4607843137;0.4705882353;0.4803921569;0.5196078431;0.5294117647;0.5392156863;0.5490196078;0.5588235294;0.5980392157;0.6078431373;0.7745098039;0.7843137255;0.8039215686;0.8137254902;0.8333333333;0.8431372549;0.8529411765;0.8823529412;0.8921568627;0.9019607843;0.9117647059;0.9215686275;0.931372549;0.9411764706;0.9509803922;0.9705882353;0.9803921569;1.0" repeatCount="indefinite" values="800;800;800;900;900;1000;900;1000;1000;1100;1100;1200;1200;1100;1200;1200;1100;1100;1000;1000;1100;1100;1000;1000;1100;1000;1000;1100;1100;1000;1000;1100;1100;1200;1200;1100;1100"/>
-<animate attributeName="visibility" dur="28.28s" keyTimes="0.0;0.0098039216;1.0" repeatCount="indefinite" values="visible;visible;visible"/> </circle>
-<circle cx="600" cy="-1300" fill="none" r="35" stroke="#c1433c" stroke-width="10"> <animate attributeName="visibility" dur="28.28s" keyTimes="0.0;0.0098039216;1.0" repeatCount="indefinite" values="visible;visible;visible"/> </circle>
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-635" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-735" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-835" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-935" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-1035" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-1135" />
+<rect fill="#84A1AE" height="70" rx="15" width="70" x="1165" y="-1235" />
+<circle cx="700" cy="-900" fill="#c1433c" r="35"> <animate attributeName="cy" dur="1.4000000000000001s" keyTimes="0.0;0.1666666667;0.3333333333;0.5;1.0" repeatCount="indefinite" values="-900;-900;-900;-1000;-1000"/>
+<animate attributeName="cx" dur="1.4000000000000001s" keyTimes="0.0;0.1666666667;0.3333333333;0.5;0.6666666667;0.8333333333;1.0" repeatCount="indefinite" values="700;700;800;800;900;1000;1000"/>
+<animate attributeName="visibility" dur="1.4000000000000001s" keyTimes="0.0;0.1666666667;0.6666666667;0.8333333333;1.0" repeatCount="indefinite" values="visible;visible;visible;hidden;hidden"/> </circle>
+<circle cx="1000" cy="-1000" fill="none" r="35" stroke="#c1433c" stroke-width="10"> <animate attributeName="visibility" dur="1.4000000000000001s" keyTimes="0.0;0.1666666667;0.6666666667;0.8333333333;1.0" repeatCount="indefinite" values="visible;visible;visible;hidden;hidden"/> </circle>
 </svg>
