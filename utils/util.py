@@ -1,82 +1,163 @@
-def custom_step(self, action: list):
-        assert len(action) == self.grid_config.num_agents
-        rewards = []
+import yaml
+from os.path import isfile
+from pogema.animation import AnimationMonitor, AnimationConfig
 
-        terminated = []
+def evaluate_metrics(model, env, model_name:str, num_episodes=10, num_trials=100, verbose=False, save_animation=False) -> dict:
+    """Evaluate trained agent (model) on environment based on set number of trials.
 
-        self.move_agents(action)
-        self.update_was_on_goal()
+    Args:
+        model: Stable Baseline3 model
+        env: Gym env
+        num_episodes: Number of episodes in each trial
+        num_trials: Number of trials used for evaluation
+        verbose: Set to True to print env output and action taken for each step of trial 
+        save_animation: Set to True to save successful trial as svg
 
-        for agent_idx in range(self.grid_config.num_agents):
+    Returns:
+        Dict containing calculated metrics (success_rate, step_array, ave_steps, reward_array, all_reward_array).
+    """
+    if save_animation:
+        env = AnimationMonitor(env)
 
-            c_x, c_y = self.grid.positions_xy[agent_idx]
-            f_x, f_y = self.grid.finishes_xy[agent_idx]
-
-            #d = math.sqrt((c_x - f_x) ** 2 + (c_y - f_y) ** 2)    
-            #reward = 1 - (d / (math.sqrt(2) * GRID_LEN))
-            reward = 1 - ( (abs(c_x - f_x) + abs(c_y - f_y)) / (2 * GRID_LEN) )
-            #print(f"[CURR] {c_x}, {c_y} [FINISH] {f_x}, {f_y} [DIST] {d} [REWARD] {reward}")
-
-
-            on_goal = self.grid.on_goal(agent_idx)
-            if on_goal and self.grid.is_active[agent_idx]:
-                print("FINISH", reward)
-                rewards.append(reward)
-            else:
-                rewards.append(reward)
-            terminated.append(on_goal)
-
-        for agent_idx in range(self.grid_config.num_agents):
-            if self.grid.on_goal(agent_idx):
-                self.grid.hide_agent(agent_idx)
-                self.grid.is_active[agent_idx] = False
-
-        infos = self._get_infos()
-
-        observations = self._obs()
-        truncated = [False] * self.grid_config.num_agents
-        return observations, rewards, terminated, truncated, infos
-
-
-
-def evaluate_success_rate(model, env, num_episodes=1000):
     success_count = 0
     step_array = []
-    rewards_arr = []
-    all_rewards_arr = []
-    for i in range(num_episodes):
-        print(f'---{i}---')
-        obs = env.reset()
+    reward_array = [] # success only
+    all_reward_array = [] # success + failure
 
-        # Check if observation is a tuple and extract the first element if true.
-        if isinstance(obs, tuple):
-            obs = obs[0]
-        max_step = 64
+    for trial in range(num_trials):
+        obs, info = env.reset()        
+        max_step = num_episodes
         steps_taken = 0
-        reward_acc = 0 
+        reward_acc = 0
         done = truncated = False
         while not done and max_step > 0:
             action, _ = model.predict(obs)
             next_obs, reward, done, truncated, info = env.step(action)
-            print(action,max_step,success_count,done, reward)
-            reward_acc += reward
+            if verbose:
+                print(f'Step {steps_taken} of Trial {trial} - Action: {action}, Steps Remaining: {max_step}, Done: {done}')
             max_step -= 1
             steps_taken += 1
-            # Check if next_obs is a tuple and extract the first element if true.
-            if isinstance(next_obs, tuple):
-                next_obs = next_obs[0]
+            reward_acc += reward
             obs = next_obs
 
-            # Check if agent was successful in that episode.
+            # Check if agent was successful in that trial.
             if done:
                 success_count += 1
-                print("acc reward", reward_acc)
                 step_array.append(steps_taken)
-                rewards_arr.append(reward_acc)
-                env.save_animation(f"media_d/render{i}.svg", AnimationConfig(egocentric_idx=0))
+                reward_array.append(reward_acc)
+                if save_animation:
+                    env.save_animation(f"renders/render_{model_name}.svg", AnimationConfig(egocentric_idx=0))
                 break
+        all_reward_array.append(reward_acc)
         
-        all_rewards_arr.append(reward_acc)
+    
+    # store evaluation metrics to be returned
+    metrics = {}
+    metrics['success_rate'] = success_count / num_trials
+    metrics['step_array'] = step_array
 
-    success_rate = success_count / num_episodes
-    return success_rate, step_array, rewards_arr, all_rewards_arr
+    ave_steps = lambda x: sum(step_array)/len(step_array) if len(step_array) > 0 else None
+    metrics['ave_steps'] = ave_steps(step_array)
+
+    metrics['reward_array'] = reward_array    
+    metrics['all_reward_array'] = all_reward_array
+
+    return metrics
+
+def save_metrics(metrics:dict, model_name:str, save_path:str) -> None:
+    """Writes evaluation metrics to file in save path.
+
+    Args:
+      metrics: Dict of evaluation metrics generated by evaluate_metrics()
+      model_name: Model name used as reference key in saved evaluation metrics file
+      save_path: Yaml File path containing saved evaluation metrics for each model
+
+    Returns:
+      None
+    """
+    if isfile(save_path):
+        with open(save_path) as file:
+            # The FullLoader parameter handles the conversion from YAML scalar values to Python the dictionary format
+            all_model_metrics = yaml.load(file, Loader=yaml.FullLoader)
+
+    else:
+        all_model_metrics = {}
+
+    all_model_metrics[model_name] = metrics
+
+    with open(save_path, 'w') as file:
+        yaml.dump(all_model_metrics, file, default_flow_style=False)
+
+def save_model_params(trial, model_name:str, save_path:str, default_params:dict=None) -> None:
+    """Writes all tuned model hyperparameters to file in save path.
+
+    Args:
+      trial: Best trial from Optuna study
+      model_name: Model name used as reference key in saved hyperparameters file
+      save_path: Yaml File path containing saved hyperparameters
+
+    Returns:
+      None
+    """
+    if isfile(save_path):
+        with open(save_path) as file:
+            # The FullLoader parameter handles the conversion from YAML scalar values to Python the dictionary format
+            all_model_hyperparams = yaml.load(file, Loader=yaml.FullLoader)
+    else:
+        all_model_hyperparams = {}
+
+    if default_params:
+        model_hyperparams = {**default_params}
+    else:
+        model_hyperparams = {}
+
+    for key, value in trial.params.items():
+        model_hyperparams[key] = value
+
+    for key, value in trial.user_attrs.items():
+        model_hyperparams[key] = value
+
+    all_model_hyperparams[model_name] = model_hyperparams
+
+    with open(save_path, 'w') as file:
+        yaml.dump(all_model_hyperparams, file, default_flow_style=False)
+
+def get_model_log(model_name:str, save_path:str) -> dict:
+    """Reads all saved model log details (e.g. hyperparameters, evaluation metrics)
+    and returns corresponding log details of specified model.
+
+    Args:
+      model_name: Model name used as reference key in saved log details file
+      save_path: Yaml File path containing saved log details
+
+    Returns:
+      Dict containing saved model log details.
+
+    Raises:
+      AssertionError: If no model log details is not in found saved file.
+    """
+    if isfile(save_path):
+        with open(save_path) as file:
+            # FullLoader parameter handles the conversion from YAML scalar values to Python the dictionary format
+            all_model_hyperparams = yaml.load(file, Loader=yaml.FullLoader)
+
+    else:
+        all_model_hyperparams = {}
+
+    assert model_name in list(all_model_hyperparams.keys()), f"model_name not found in save file. Save filepath: {save_path}"
+
+    return all_model_hyperparams[model_name]
+
+def load_model_params(sb3_model, params:dict):
+    """Load tuned hyperparameters into Stable Baseline3 (sb3) model
+
+    Args:
+        sb3_model: Stable Baseline3 model
+        params: Gym env
+
+    Returns:
+        sb3 model with loaded hyperparameters
+    """   
+    kwargs = params.copy()
+    model = sb3_model(**kwargs)
+    return model
