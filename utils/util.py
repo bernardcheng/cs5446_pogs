@@ -36,3 +36,47 @@ def custom_step(self, action: list):
         observations = self._obs()
         truncated = [False] * self.grid_config.num_agents
         return observations, rewards, terminated, truncated, infos
+
+
+
+def evaluate_success_rate(model, env, num_episodes=1000):
+    success_count = 0
+    step_array = []
+    rewards_arr = []
+    all_rewards_arr = []
+    for i in range(num_episodes):
+        print(f'---{i}---')
+        obs = env.reset()
+
+        # Check if observation is a tuple and extract the first element if true.
+        if isinstance(obs, tuple):
+            obs = obs[0]
+        max_step = 64
+        steps_taken = 0
+        reward_acc = 0 
+        done = truncated = False
+        while not done and max_step > 0:
+            action, _ = model.predict(obs)
+            next_obs, reward, done, truncated, info = env.step(action)
+            print(action,max_step,success_count,done, reward)
+            reward_acc += reward
+            max_step -= 1
+            steps_taken += 1
+            # Check if next_obs is a tuple and extract the first element if true.
+            if isinstance(next_obs, tuple):
+                next_obs = next_obs[0]
+            obs = next_obs
+
+            # Check if agent was successful in that episode.
+            if done:
+                success_count += 1
+                print("acc reward", reward_acc)
+                step_array.append(steps_taken)
+                rewards_arr.append(reward_acc)
+                env.save_animation(f"media_d/render{i}.svg", AnimationConfig(egocentric_idx=0))
+                break
+        
+        all_rewards_arr.append(reward_acc)
+
+    success_rate = success_count / num_episodes
+    return success_rate, step_array, rewards_arr, all_rewards_arr
