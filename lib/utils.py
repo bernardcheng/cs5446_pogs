@@ -14,18 +14,21 @@ def evaluate_metrics(model, env, model_name:str, num_episodes=10, num_trials=100
         save_animation: Set to True to save successful trial as svg
 
     Returns:
-        Dict containing calculated metrics (success_rate, step_array, ave_steps).
+        Dict containing calculated metrics (success_rate, step_array, ave_steps, reward_array, all_reward_array).
     """
     if save_animation:
         env = AnimationMonitor(env)
 
     success_count = 0
     step_array = []
-    for trial in range(num_trials):
-        obs, info = env.reset()
+    reward_array = [] # success only
+    all_reward_array = [] # success + failure
 
+    for trial in range(num_trials):
+        obs, info = env.reset()        
         max_step = num_episodes
         steps_taken = 0
+        reward_acc = 0
         done = truncated = False
         while not done and max_step > 0:
             action, _ = model.predict(obs)
@@ -34,15 +37,19 @@ def evaluate_metrics(model, env, model_name:str, num_episodes=10, num_trials=100
                 print(f'Step {steps_taken} of Trial {trial} - Action: {action}, Steps Remaining: {max_step}, Done: {done}')
             max_step -= 1
             steps_taken += 1
+            reward_acc += reward
             obs = next_obs
 
-            # Check if agent was successful in that episode.
+            # Check if agent was successful in that trial.
             if done:
                 success_count += 1
                 step_array.append(steps_taken)
+                reward_array.append(reward_acc)
                 if save_animation:
                     env.save_animation(f"renders/render_{model_name}.svg", AnimationConfig(egocentric_idx=0))
                 break
+        all_reward_array.append(reward_acc)
+        
     
     # store evaluation metrics to be returned
     metrics = {}
@@ -51,6 +58,9 @@ def evaluate_metrics(model, env, model_name:str, num_episodes=10, num_trials=100
 
     ave_steps = lambda x: sum(step_array)/len(step_array) if len(step_array) > 0 else None
     metrics['ave_steps'] = ave_steps(step_array)
+
+    metrics['reward_array'] = reward_array    
+    metrics['all_reward_array'] = all_reward_array
 
     return metrics
 

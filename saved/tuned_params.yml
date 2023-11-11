@@ -28,3 +28,8 @@ PPO_C:
   learning_rate: 0.0042933221799210716
   policy: MlpPolicy
   verbose: 1
+PPO_D:
+  gamma: 0.9942031768047042
+  learning_rate: 0.00035539212878495964
+  policy: MlpPolicy
+  verbose: 1
